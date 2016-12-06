@@ -40,6 +40,20 @@ public static void main(String args[])
     fileOut.close();
 
     scan.close();
+    // read the data
+    FileReader fileIn = new FileReader("outData.txt");
+    BufferedReader fin = new BufferedReader(fileIn);
+    
+    while ((line = fin.readLine()) != null)
+    {
+     	num = Integer.parseInt(line);
+    	list.add(num);
+      System.out.println(num);
+    }
+    System.out.println("thank you ... the data has been received!");
+    fin.close();
+    fileIn.close();
+
   }
   catch(Exception e)
   {
