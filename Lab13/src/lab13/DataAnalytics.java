@@ -18,6 +18,7 @@ public static void main(String args[])
   int num = 0;
   int val = 0;
   String line = "";
+  int[] sortedNumbers = new int[15];
 
   try
   {
@@ -58,8 +59,13 @@ public static void main(String args[])
     			DisplayData(list);
 
      System.out.println("display sorted data");
-    			BubbleSort(list);
-          
+    		sortedNumbers = BubbleSort ();
+
+    for (int i=0; i < sortedNumbers.length; i++)
+    {
+        System.out.println("The sorted numbers are: ");
+        System.out.print(sortedNumbers[i]+ " ");
+    }
   }
   catch(Exception e)
   {
@@ -90,8 +96,12 @@ public static void BubbleSort(ArrayList<Integer> num)
                 num.set(j + 1, temp);
                 flag = true; //shows a swap occurred  
                 } 
+                    
             } 
+
         }
+
+      
     } 
 
 }
