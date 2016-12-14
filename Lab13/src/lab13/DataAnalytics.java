@@ -8,7 +8,7 @@ import java.util.Scanner;
 //Colby Underhill: Data Analysis with Java File Processing
 
 class DataAnalytics {
-
+static int min = 0, max = 0;
     public static void main(String args[]) {
         // declare an object to receive the data
         Scanner scan = new Scanner(System.in);
@@ -58,6 +58,8 @@ class DataAnalytics {
             System.out.println("display sorted data");
             BubbleSort(list);
 
+            System.out.println("MinMax = " + min + max);
+            
         } catch (Exception e) {
             // catch an exception if any arises
             System.err.println("Error: " + e.getMessage());
@@ -88,5 +90,22 @@ class DataAnalytics {
             }
         }
         System.out.println(num.toString());
+    }
+public static void MinMax(ArrayList<Integer> num)
+    {
+    int min = num.get(0);
+    int max = num.get(0);
+
+    for(Integer i: num) {
+        if(i < min) min = i;
+        if(i > max) max = i;
+
+    System.out.println("min = " + min);
+    System.out.println("max = " + max);
+    }
+    }
+    public static void Average(ArrayList<Integer> num)
+    {
+        
     }
 }
