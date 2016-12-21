@@ -55,8 +55,10 @@ static int min = 0, max = 0;
             System.out.println("display unsorted data");
             DisplayData(list);
 
-            System.out.println("display sorted data");
             BubbleSort(list);
+            
+            System.out.println("display sorted data");
+            DisplayData(list);
 
             System.out.println("MinMax = " + min + max);
             
@@ -89,7 +91,7 @@ static int min = 0, max = 0;
                 }
             }
         }
-        System.out.println(num.toString());
+        //System.out.println(num.toString());
     }
 public static void MinMax(ArrayList<Integer> num)
     {
