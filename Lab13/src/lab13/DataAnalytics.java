@@ -49,13 +49,12 @@ class DataAnalytics
             System.out.println("thank you ... the data has been received!");
             fin.close();
             fileIn.close();
-            System.out.println("display unsorted data");
+            System.out.println("Unsorted Data:");
             DisplayData(list);
             BubbleSort(list);//Sort the data!!!
-            System.out.println("display sorted data");
+            System.out.println("Sorted Data:");
             DisplayData(list);
-            Calculations(list);  //display max,min values
-            //Average(list); //display average values
+            Calculations(list);  //display max, min, and other calculated values
             } 
         catch (Exception e) 
             {
@@ -99,9 +98,9 @@ public static void Calculations(ArrayList<Integer> num)
         {
         sum += num.get(i);
         }
-    System.out.println("min value intered = " + min);
-    System.out.println("max value entered = " + max);
-    System.out.println("total of the values = " + sum);
-    System.out.println("average of the values = " + sum/num.size());
+    System.out.println("Min Value Entered = " + min);
+    System.out.println("Max Value Entered = " + max);
+    System.out.println("Total of the Values = " + sum);
+    System.out.println("Average of the Values = " + sum/num.size());
     }
 }
