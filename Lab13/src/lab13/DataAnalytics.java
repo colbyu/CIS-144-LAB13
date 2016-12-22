@@ -1,14 +1,30 @@
+/** This class provides the main engine of the program. 
+*It creates and maintains the array list and calls external 
+*classes that manipulate the data in the array list.
+*/
+
 package lab13;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-//Colby Underhill: Data Analysis with Java File Processing
-
-class DataAnalytics 
+import lab13.Displayer;
+import lab13.Sorter;
+import lab13.Calculator;
+/**
+ *
+ * @author colby
+ */
+public class DataAnalytics 
     {
     static int min = 0, max = 0;
-    public static void main(String args[]) 
+    Displayer d = new Displayer();
+    Sorter s = new Sorter();
+    Calculator c = new Calculator();
+    public void Engine()
         {
         // declare an object to receive the data
         Scanner scan = new Scanner(System.in);
@@ -50,11 +66,11 @@ class DataAnalytics
             fin.close();
             fileIn.close();
             System.out.println("Unsorted Data:");
-            DisplayData(list);
-            BubbleSort(list);//Sort the data!!!
+            d.DisplayData(list);
+            s.BubbleSort(list);//Sort the data!!!
             System.out.println("Sorted Data:");
-            DisplayData(list);
-            Calculations(list);  //display max, min, and other calculated values
+            d.DisplayData(list);
+            c.Calculations(list);  //display max, min, and other calculated values
             } 
         catch (Exception e) 
             {
@@ -62,45 +78,4 @@ class DataAnalytics
             System.err.println("Error: " + e.getMessage());
             }
         }
-    public static void DisplayData(ArrayList<Integer> num) 
-        {
-        for (int i = 0; i < num.size(); i++) 
-            {
-            System.out.println(num.get(i).toString());
-            }
-        }
-    public static void BubbleSort(ArrayList<Integer> num) 
-        {
-        int j = 0;
-        boolean flag = true;  // set the flag to true to begin first pass
-        int temp = 0;  // define the holding variable
-        while (flag) 
-            {
-            flag = false; //set flag to false awaiting a possible swap
-            for (j = 0; j < num.size() - 1; j++) 
-                {
-                if (num.get(j) > num.get(j + 1)) // for descending sort change to <
-                    {
-                    temp = num.get(j); //swap the elements
-                    num.set(j, num.get(j + 1));
-                    num.set(j + 1, temp);
-                    flag = true; //shows a swap occurred  
-                    }
-                }
-            }
-        }
-public static void Calculations(ArrayList<Integer> num)
-    {
-    double sum = 0, min = 0, max = 0;
-    min = num.get(0);
-    max = num.get(num.size()-1);
-    for (int i = 0; i<num.size();++i)
-        {
-        sum += num.get(i);
-        }
-    System.out.println("Min Value Entered = " + min);
-    System.out.println("Max Value Entered = " + max);
-    System.out.println("Total of the Values = " + sum);
-    System.out.println("Average of the Values = " + sum/num.size());
     }
-}
